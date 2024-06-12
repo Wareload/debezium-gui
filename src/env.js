@@ -9,7 +9,7 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    DEBEZIUM_URL: z.string().url().endsWith('/').transform((url )=> { return url.endsWith('/') ? url.slice(0, -1) : url}),
+    DEBEZIUM_URL: z.string().url().transform((url )=> { return url.endsWith('/') ? url.slice(0, -1) : url}),
   },
 
   /**

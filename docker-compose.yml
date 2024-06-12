@@ -13,7 +13,6 @@ services:
       KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
       KAFKA_CFG_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
-
   debezium-connect:
     image: debezium/connect:2.5
     pull_policy: always
@@ -40,3 +39,11 @@ services:
     command: [ "postgres", "-c", "wal_level=logical" ]
     ports:
       - "5432:5432"
+  debezium-gui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000'
+    environment:
+      DEBEZIUM_URL: http://debezium-connect:8083
