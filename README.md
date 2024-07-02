@@ -1,11 +1,8 @@
 # Debezium Gui
 
+A simple GUI for Debezium
 
-````bash
-curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @example-debezium-connectors/source-register-postgres.json
-````
-
-
-````bash
-curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" http://localhost:8083/connectors/ -d @example-debezium-connectors/sink-register-postgres.json
-````
+You need to specify following environment variables:
+```bash
+DEBEZIUM_URL: full url to debezium, e.g. http://debezium-connect:8083
+```
